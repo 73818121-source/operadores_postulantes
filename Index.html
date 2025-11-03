@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Operador - Modelo Mejorado</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <h2>Nuevo Registro de Operador 🧑‍💻</h2>
+
+    <form action="https://script.google.com/macros/s/AKfycbx-QlgOwjVUJNB2wdxg09YyVSQ5jIUVrBvBC3g5PTimGyfjDjZeaUas_s-2FGMOu0us/exec" method="POST">
+
+        <h3>I. Datos Personales e Identificación</h3>
+        <fieldset>
+            <div>
+                <label for="dni">N° Documento de indentidad (DNI)</label>
+                <input type="text" id="dni" name="dni" required>
+            </div>
+            <div>
+                <label for="nombres">Nombres</label>
+                <input type="text" id="nombres" name="nombres" required>
+            </div>
+            <div>
+                <label for="apellidos">Apellidos</label>
+                <input type="text" id="apellidos" name="apellidos" required>
+            </div>
+            <div>
+                <label for="nacimiento">Fecha de Nacimiento</label>
+                <input type="date" id="nacimiento" name="nacimiento" required>
+                <small>Edad calculada: XX años</small>
+            </div>
+            <div>
+                <label for="celular">Teléfono Celular</label>
+                <input type="tel" id="celular" name="celular">
+            </div>
+            <div>
+                <label for="correo">Correo Electrónico</label>
+                <input type="email" id="correo" name="correo" required>
+            </div>
+        </fieldset>
+
+        <h3>II. Licencia y Ubicación</h3>
+        <fieldset>
+            <div>
+                <label for="licencia">Categoría de Licencia</label>
+                <select id="licencia" name="licencia" required>
+                    <option value="">Seleccione...</option>
+                    <option value="A1">A-I</option>
+                    <option value="A2A">A-IIA</option>
+                    <option value="A2B">A-IIB</option>
+                    <option value="A3A">A-IIIA</option>
+                    <option value="A3C">A-IIIC</option>
+                    <option value="A4">A-4</option>
+                    </select>
+            </div>
+            <div>
+                <label for="revalidacion">Fecha de Revalidación de Licencia</label>
+                <input type="date" id="revalidacion" name="revalidacion">
+            </div>
+            <div>
+                <label for="procedencia">Lugar de Procedencia</label>
+                <input type="text" id="procedencia" name="procedencia">
+            </div>
+            <div>
+                <label for="proyecto">Proyecto/Área Asignada</label>
+                <input type="text" id="proyecto" name="proyecto">
+            </div>
+        </fieldset>
+
+        <h3>III. Experiencia Laboral con Equipos</h3>
+        <fieldset>
+            <p class="full-width">*Añada los periodos y equipos certificados.</p>
+            
+            <div id="experiencia-container">
+                <div class="equipo-bloque" id="equipo-bloque-1">
+                    <h4>Equipo #1</h4>
+                    <div>
+                        <label for="equipo-1">Equipo al que Postula</label>
+                        <select id="equipo-1" name="equipo[1][nombre]" required>
+                            <option value="">Seleccione...</option>
+                            <option value="Camioneta">Const. Camioneta</option>
+                            <option value="Retroexcavadora">Retroexcavadora</option>
+                            <option value="Volquete">Volquete</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="empresa-1">Empresa</label>
+                        <input type="text" id="empresa-1" name="equipo[1][empresa]" required>
+                    </div>
+                    <div>
+                        <label for="inicio-1">F. Inicial</label>
+                        <input type="date" id="inicio-1" name="equipo[1][inicio]" required>
+                    </div>
+                    <div>
+                        <label for="final-1">F. Final</label>
+                        <input type="date" id="final-1" name="equipo[1][final]" required>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="full-width">
+                <button type="button" id="add-team-btn" onclick="agregarEquipo()">+ Agregar otro Equipo</button>
+                <small class="full-width">Experiencia Calculada (Backend): [X] años, [Y] meses.</small>
+            </div>
+            
+        </fieldset>
+
+        <h3>IV. Documentación y Notas</h3>
+        <fieldset>
+            <div>
+                <label for="certificado">Certificado Adjunto</label>
+                <input type="file" id="certificado" name="certificado" accept=".pdf,.jpg,.png">
+            </div>
+            <div class="full-width">
+                <label for="observaciones">Observaciones Adicionales</label>
+                <textarea id="observaciones" name="observaciones"></textarea>
+            </div>
+        </fieldset>
+        
+        <div class="metadata-footer">
+            Registrado por: **Delia Vasquez** | Fecha de Registro: **03/11/2025 16:30** (Generado automáticamente)
+        </div>
+
+        <div class="action-buttons">
+            <button type="submit" class="primary">✅ Guardar Nuevo Operador</button>
+            <button type="reset" class="secondary">🗑️ Limpiar Formulario</button>
+        </div>
+    </form>
+
+    <script>
+        let equipoCounter = 1;
+
+        function agregarEquipo() {
+            equipoCounter++;
+            const container = document.getElementById('experiencia-container');
+            const newBlock = document.createElement('div');
+            newBlock.className = 'equipo-bloque';
+            newBlock.id = `equipo-bloque-${equipoCounter}`;
+            
+            newBlock.innerHTML = `
+                <h4>Equipo #${equipoCounter}</h4>
+                <div>
+                    <label for="equipo-${equipoCounter}">Equipo al que Postula</label>
+                    <select id="equipo-${equipoCounter}" name="equipo[${equipoCounter}][nombre]" required>
+                        <option value="">Seleccione...</option>
+                        <option value="Camioneta">Const. Camioneta</option>
+                        <option value="Retroexcavadora">Retroexcavadora</option>
+                        <option value="Volquete">Volquete</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="empresa-${equipoCounter}">Empresa</label>
+                    <input type="text" id="empresa-${equipoCounter}" name="equipo[${equipoCounter}][empresa]" required>
+                </div>
+                <div>
+                    <label for="inicio-${equipoCounter}">F. Inicial</label>
+                    <input type="date" id="inicio-${equipoCounter}" name="equipo[${equipoCounter}][inicio]" required>
+                </div>
+                <div>
+                    <label for="final-${equipoCounter}">F. Final</label>
+                    <input type="date" id="final-${equipoCounter}" name="equipo[${equipoCounter}][final]" required>
+                </div>
+                <div style="grid-column: 1 / -1; text-align: right;">
+                    <button type="button" class="secondary" onclick="document.getElementById('equipo-bloque-${equipoCounter}').remove()">Eliminar</button>
+                </div>
+            `;
+            container.appendChild(newBlock);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+
+        /* --- ESTILOS GENERALES Y LAYOUT --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            padding: 20px;
+        }
+
+        form {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #007bff;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            color: #495057;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        /* --- ESTILOS DE AGRUPACIÓN (FIELDSET Y DIVS) --- */
+        fieldset {
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            padding: 20px;
+            margin-bottom: 25px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        /* Permitir que la observación ocupe todo el ancho */
+        .metadata-footer, .action-buttons, .full-width {
+            grid-column: 1 / -1; 
+            margin-top: 10px;
+        }
+
+        /* --- ESTILOS DE ETIQUETAS E INPUTS --- */
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* --- ESTILOS ESPECÍFICOS PARA EXPERIENCIA (BLOQUE REPETIBLE) --- */
+        #experiencia-container {
+            grid-column: 1 / -1; /* Contenedor de equipos ocupa todo el ancho */
+        }
+
+        .equipo-bloque {
+            border: 1px dashed #adb5bd;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+        }
+
+        .equipo-bloque h4 {
+            margin-top: 0;
+            color: #007bff;
+            font-size: 1.1em;
+            grid-column: 1 / -1;
+        }
+
+        /* --- ESTILOS DE PIE DE PÁGINA Y BOTONES --- */
+        .metadata-footer {
+            text-align: right;
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        button {
+            padding: 10px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: background-color 0.3s, opacity 0.3s;
+        }
+
+        /* Botón Primario: Guardar Nuevo Operador */
+        .primary {
+            background-color: #28a745;
+            color: white;
+        }
+        .primary:hover {
+            background-color: #218838;
+        }
+
+        /* Botones Secundarios: Limpiar Formulario, Agregar Equipo */
+        .secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+        .secondary:hover {
+            background-color: #5a6268;
+        }
+
+        /* Estilo para el botón de "Agregar otro Equipo" */
+        #add-team-btn {
+            display: block;
+            width: auto;
+            margin-top: 10px;
+            background-color: #17a2b8;
+        }
+        #add-team-btn:hover {
+            background-color: #138496;
+        }
+
